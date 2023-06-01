@@ -75,17 +75,17 @@ The process is basically the same for all these VPS, but here some step-by-steps
 
 ### VM with Tiktalik
 
-**NOTE:** Do yourself a favor already - [create](http://articles.tiktalik.com/content/help/how-create-ssh-key/) and [add](https://tiktalik.com/en/panel/#sshkeys) a public SSH key to your Tiktalik account, before creating any new VM instances - it's safer and more convenient to use. You'll thank me later.
+**NOTE:** Do yourself a favor already - [create](http://articles.tiktalik.com/content/help/how-create-ssh-key/) and [add](https://tiktalik.com/en/panel/#sshkeys) a public SSH key to your Tiktalik account, before creating any new server instances - it's safer and more convenient to use. You'll thank me later.
 
 * Choose "Instances" from the left-pane, in **COMPUTING** section.
 * Click on *+Create new instance*
 * **Hostname**: Type in the unique name of your server
 * **Image**: Select an operating system image, which will be deployed (installed) on your VPS.
-* **Size**: Click the option "Standard" (preselected) and scale-up/down your virtual machine's RAM, measured with "*Std Unit*s" - each unit adds 1 GB of RAM, default is "1 Std Unit" / VPS with 1 GB of RAM
+* **Size**: Click the option "Standard" (preselected) and scale-up/down your server's RAM size, measured with "*Std Unit*s" - each unit adds 1 GB of RAM, default is "1 Std Unit" / a VPS with 1 GB of RAM
 (number of available CPUs for all "Standard" instances is fixed to "2 vCPUs")
 * **Hard disk**: Use slider to pick the size of your "Standard" instance's HDD (not SSD), with 5 GB "granularity" - default/min. size is 20 GB (max. selectable size is 1000 GB)
 * **Networks**: Select one of 5 available (pub2-pub6) public network segments, from which an IP address will be assigned automatically to your server instance
-(or leave the default "Public network" selection - it will pick an IP address range at random from all available segments; "+Add network interface" button is currently defunct)
+(or leave the default "Public network" selection - it will pick an IP address range at random from all available segments; sidenote: "+Add network interface" button is currently defunct)
 * **SSH key**: Leave the default selection "Without SSH key" if you want your *root* account to use a password (for initial authentication); or select the name of one of available SSH keys, to use it for authentication.
 * *Note that "SSH key" option is only visible, if any public key(s) was/were [created](http://articles.tiktalik.com/content/help/how-create-ssh-key/) and [added](https://tiktalik.com/en/panel/#sshkeys) to your account earlier*
 * +Create
