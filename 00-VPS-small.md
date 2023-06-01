@@ -23,7 +23,8 @@ Sign-up is immediate - just provide your email address and a password of your ch
 | [Digital Ocean](https://www.digitalocean.com/try/developer-brand) | Basic Plan              | 1    | 1 GB   | 25 GB SSD | $6.00 | $200 / 60 days | 
 | [Linode](https://www.linode.com/lp/free-credit-short/)        | Nanode 1GB              | 1    | 1 GB   | 25 GB SSD | $5.00 | $100 / 60 days | 
 | [Vultr](https://www.vultr.com/vultr-vs-linode/?promo=LINODE150)         | Cloud Compute - Regular | 1    | 1 GB   | 25 GB SSD | $5.00 | $250 / 30 days |
-| [Tiktalik](https://tiktalik.com/en)     | VPS Standard | 2 | 1GB | 20 GB HDD | ~$2.50 | N/A - pre-paid |
+| [Tiktalik](https://tiktalik.com/en)     | VPS Standard | 2 | 1 GB | 20 GB HDD | ~$2.50 | N/A (pre-paid) |
+
 For more details:
 * [Get started with Digital Ocean](https://docs.digitalocean.com/products/getting-started/)
 * [Get started with Linode](https://www.linode.com/docs/products/platform/get-started/)
@@ -71,6 +72,21 @@ The process is basically the same for all these VPS, but here some step-by-steps
 * **Server Hostname & Label**: Choose a hostname for your server.
 * **Disable** "Auto Backups" and "IPv6". They will not be required for the challenge and are only adding to the bill.
 * Deploy Now
+
+### VM with Tiktalik
+
+* Choose "Instances" from the left-pane, in **COMPUTING** section.
+* Click on *+Create new instance*
+* **Hostname**: Type in the unique name of your server
+* **Image**: Select an operating system image, which will be deployed (installed) on your VPS.
+* **Size**: Click the option "Standard" (preselected) and scale-up/down your virtual machine's RAM, measured with "*Std Unit*s" - each unit runs on 1GB of RAM, default is "1 Std Unit"
+(size of CPU for all "Standard" instances is fixed to 2 vCPUs)
+* **Hard disk**: Use the slider to pick the size of your "Standard" instance's HDD (not SSD), with 5 GB granularity - default/min. size is 20 GB (max. size is 1000 GB)
+* **Networks**: Select one of 5 available (pub2-pub6) public network segments, from which an IP address will be assigned to your instance
+(or leave the default "Public network" selection - it will pick a public IP address range at random; "+Add network interface" button is defunct)
+* **SSH key**: Leave the default selection "Without SSH key" if you want your *root* account to use password (for initial authentication), or select the name of one of available SSH keys to use it for authentication.
+* *Note that "SSH key" option is only visible, if any public key(s) was/were [created](http://articles.tiktalik.com/content/help/how-create-ssh-key/) and [added](https://tiktalik.com/en/panel/#sshkeys) to your account earlier*
+* +Create
 
 ## Logging in for the first time with console
 
