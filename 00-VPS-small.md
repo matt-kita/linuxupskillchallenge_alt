@@ -109,7 +109,7 @@ You should see a "Public IPv4 address" (or similar) entry for your server in acc
 * **Tiktalik**: Click on *Instances* (the public IPv4 address should be visible next to server's DNS address)
 
 If you are using Windows, download Putty and [follow the instructions to connect](https://blog.livialima.net/putty-basics).
-Alternatively, in newer Windows versions (10/11), use the built-in SSH client via the CLI (e.g. cmd.exe), as described below.
+Alternatively, in newer Windows versions (10/11), you can use a built-in SSH client via the CLI (e.g. cmd.exe), as described below.
 
 If you are on Linux or MacOS, open a terminal and run the command:
 
