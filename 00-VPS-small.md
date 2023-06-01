@@ -75,12 +75,12 @@ The process is basically the same for all these VPS, but here some step-by-steps
 
 ### VM with Tiktalik
 
-**NOTE:** Do yourself a favor already - [create](http://articles.tiktalik.com/content/help/how-create-ssh-key/) and [add](https://tiktalik.com/en/panel/#sshkeys) a public SSH key to your Tiktalik account, before creating any new server instances - it's safer and more convenient to use. You'll thank me later.
+**NOTE:** Do yourself a favor already - [create](http://articles.tiktalik.com/content/help/how-create-ssh-key/) and [add](https://tiktalik.com/en/panel/#sshkeys) a public SSH key to your Tiktalik account, before creating any new server instances - it's safer and more convenient to use.
 
 * Choose "Instances" from the left-pane, in **COMPUTING** section.
 * Click on *+Create new instance*
 * **Hostname**: Type in the unique name of your server
-* **Image**: Select an operating system image, which will be deployed (installed) on your VPS.
+* **Image**: Select an operating system image, which will be deployed (installed) on your VPS. Prefer the latest available "Ubuntu" LTS release.
 * **Size**: Click the option "Standard" (preselected) and scale-up/down your server's RAM size, measured with "*Std Unit*s" - each unit adds 1 GB of RAM, default is "1 Std Unit" / a VPS with 1 GB of RAM
 (number of available CPUs for all "Standard" instances is fixed to "2 vCPUs")
 * **Hard disk**: Use slider to pick the size of your "Standard" instance's HDD (not SSD), with 5 GB "granularity" - default/min. size is 20 GB (max. selectable size is 1000 GB)
@@ -97,16 +97,19 @@ We are going to access our server using SSH but, if for some reason you get stuc
 * Digital Ocean: [Droplet Console](https://docs.digitalocean.com/products/droplets/how-to/connect-with-console/)
 * Linode: [LISH Console](https://www.linode.com/docs/products/compute/compute-instances/guides/lish/)
 * Vultr: [Web Console](https://www.vultr.com/docs/vultr-web-console-faq/)
+* Tiktalik: **noVNC** management console is unavailable at this time
 
 ## Remote access via SSH
 
-You should see an "Public IPv4 address" entry for your server, this is its unique Internet IP address, and is how you'll connect to it via SSH (the Secure Shell protocol) - something we'll be covering in the first lesson.
+You should see a "Public IPv4 address" (or similar) entry for your server in account's control panel, this is its unique Internet IP address, and it is how you'll connect to it via SSH (the Secure Shell protocol) - something we'll be covering in the first lesson.
 
 * **Digital Ocean**: Click on *Networking tab > Public Network > Public IPv4 Address*
 * **Linode**: Click on *Network tab > IP Addresses > IPv4 - Public*
 * **Vultr**: Click on *Settings tab > Public Network > Address*
+* **Tiktalik**: Click on *Instances* (the public IPv4 address should be visible next to server's DNS address)
 
-If you are using windows download Putty and [follow the instructions to connect](https://blog.livialima.net/putty-basics).
+If you are using Windows, download Putty and [follow the instructions to connect](https://blog.livialima.net/putty-basics).
+Alternatively, in newer Windows versions (10/11), use the built-in SSH client via the CLI (e.g. cmd.exe), as described below.
 
 If you are on Linux or MacOS, open a terminal and run the command:
 
@@ -114,11 +117,11 @@ If you are on Linux or MacOS, open a terminal and run the command:
 
 Or, using the SSH private key, `ssh -i private_key username@ip_address`
 
-Enter your password
+Enter your password (or a passphrase, if your SSH key is protected with one)
 
 Voila! You have just accessed your server remotely.
 
-In doubt, consult the [complementary video](https://youtube.com/live/_-6UYOjRIVQ?feature=share)
+If in doubt, consult the [complementary video](https://youtube.com/live/_-6UYOjRIVQ?feature=share)
 
 ## Creating a working admin account
 
