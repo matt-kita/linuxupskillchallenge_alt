@@ -129,7 +129,7 @@ We want to follow the Best Practice of not logging as "root" remotely, so we'll 
 
 `adduser snori74`
 
-`usermod -a -G adm snori74`
+`usermod -a -G admin snori74`
 
 `usermod -a -G sudo snori74`
 
@@ -143,11 +143,11 @@ To login using your new user, [copy the SSH key from root](https://askubuntu.com
 
 Confirm that you can do administrative tasks by typing:
 
-`apt update`
+`sudo apt update`
 
 Then:
 
-`apt upgrade -y`
+`sudo apt upgrade -y`
 
 Don't worry too much about the output and messages from these commands, but it should be clear whether they succeeded or not. (Reply to any prompts by taking the default option). These commands are how you force the installation of updates on an Ubuntu Linux system, and only an administrator can do them.
 
@@ -155,7 +155,7 @@ Don't worry too much about the output and messages from these commands, but it s
 
 When a kernel update is identified in this first check for updates, this is one of the few occasions you will need to reboot your server, so go for it after the update is done:
 
-`reboot now`
+`sudo reboot now`
 
 Your server is now all set up and ready for the course!
 
