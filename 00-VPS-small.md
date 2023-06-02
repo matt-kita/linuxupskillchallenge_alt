@@ -131,7 +131,9 @@ We want to follow the Best Practice of not logging as "root" remotely, so we'll 
 
 `usermod -a -G wheel snori74`
 
-(Of course, replace 'snori74' with your name! You can verify the correct group name with e.g. `grep -E '^%[a-z]+' /etc/sudoers && getent group $(grep -Eo '^%[a-z]+' /etc/sudoers | tr -d '%')`)
+(Of course, replace 'snori74' with your name!)
+
+You can also verify the correct group name with e.g. `grep -E '^%[a-z]+' /etc/sudoers` and `getent group $(grep -Eo '^%[a-z]+' /etc/sudoers | tr -d '%')`)
 
 *This* will be the account that you use to login and work with your server. It has been added to the 'wheel' group, which on a CentOS system gives it access to read various logs and to "become root" as required via the _sudo_ command.
 
@@ -172,7 +174,7 @@ Your server is now all set up and ready for the course!
 
 You may also want to [convert](https://centos.org/centos-stream/) your "CentOS Linux" to "CentOS Stream", to constantly keep it most up to date.
 
-This will require running additional 2 commands to update your software:
+This will require running 2 additional commands to update and upgrade your software:
 
 ```bash
 sudo dnf -y --disablerepo '*' --enablerepo extras swap centos-linux-repos centos-stream-repos
