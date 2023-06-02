@@ -80,7 +80,7 @@ The process is basically the same for all these VPS, but here some step-by-steps
 * Choose "Instances" from the left-pane, in **COMPUTING** section.
 * Click on *+Create new instance*
 * **Hostname**: Type in the unique name of your server
-* **Image**: Select an operating system image, which will be deployed (installed) on your VPS. Prefer the latest available "Ubuntu" LTS release.
+* **Image**: Select an operating system image, which will be deployed (installed) on your VPS. (For the purpose of this "alternative" implementation, the latest available "CentOS" stable release is preferred).
 * **Size**: Click the option "Standard" (preselected) and scale-up/down your server's RAM size, measured with "*Std Unit*s" - each unit adds 1 GB of RAM, default is "1 Std Unit" / a VPS with 1 GB of RAM
 (number of available CPUs for all "Standard" instances is fixed to "2 vCPUs")
 * **Hard disk**: Use slider to pick the size of your "Standard" instance's HDD (not SSD), with 5 GB "granularity" - default/min. size is 20 GB (max. selectable size is 1000 GB)
@@ -129,13 +129,11 @@ We want to follow the Best Practice of not logging as "root" remotely, so we'll 
 
 `adduser snori74`
 
-`usermod -a -G admin snori74`
+`usermod -a -G wheel snori74`
 
-`usermod -a -G sudo snori74`
+(Of course, replace 'snori74' with your name! You can verify the correct group name with e.g. `grep -E '^%[a-z]+' /etc/sudoers && getent group $(grep -Eo '^%[a-z]+' /etc/sudoers | tr -d '%')`)
 
-(Of course, replace 'snori74' with your name!)
-
-*This* will be the account that you use to login and work with your server. It has been added to the 'adm' and 'sudo' groups, which on an Ubuntu system gives it access to read various logs and to "become root" as required via the _sudo_ command.
+*This* will be the account that you use to login and work with your server. It has been added to the 'wheel' group, which on a CentOS system gives it access to read various logs and to "become root" as required via the _sudo_ command.
 
 To login using your new user, [copy the SSH key from root](https://askubuntu.com/questions/1218023/copying-ssh-key-from-root-to-another-user-on-same-machine/1218026#1218026).
 
@@ -143,13 +141,13 @@ To login using your new user, [copy the SSH key from root](https://askubuntu.com
 
 Confirm that you can do administrative tasks by typing:
 
-`sudo apt update`
+`sudo -l`
 
-Then:
+## Upgrading your OS
 
-`sudo apt upgrade -y`
+`sudo dnf update`
 
-Don't worry too much about the output and messages from these commands, but it should be clear whether they succeeded or not. (Reply to any prompts by taking the default option). These commands are how you force the installation of updates on an Ubuntu Linux system, and only an administrator can do them.
+Don't worry too much about the output and messages from these commands, but it should be clear whether they succeeded or not. (Reply to any prompts by taking the default option). These commands are how you force the installation of updates on a CentOS Linux system, and only an administrator can do them.
 
 **REBOOT**
 
