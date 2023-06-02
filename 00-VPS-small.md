@@ -149,7 +149,12 @@ As CentOS Linux systems have offcially reached their [EOL (End Of Life)](https:/
 
 First, run:
 
-`sudo sed -i.bak -e 's/^mirrorlist=/#mirrorlist=/g' -e 's|^#baseurl=http://mirror|baseurl=http://vault|g' /etc/yum.repos.d/CentOS-*.repo` (this is a single command)
+```bash
+sudo sed -i.bak -e 's/^mirrorlist=/#mirrorlist=/g' \
+                -e 's|^#baseurl=http://mirror|baseurl=http://vault|g' /etc/yum.repos.d/CentOS-*.repo
+```
+
+(this is a single command, split into 2 separate lines for readability)
 
 Then:
 
@@ -164,6 +169,15 @@ When a kernel update is identified in this first check for updates, this is one 
 `sudo reboot now`
 
 Your server is now all set up and ready for the course!
+
+You may also want to [convert](https://centos.org/centos-stream/) your "CentOS Linux" to "CentOS Stream", to constantly keep it most up to date.
+
+This will require running additional 2 commands to update your software:
+
+```bash
+sudo dnf -y --disablerepo '*' --enablerepo extras swap centos-linux-repos centos-stream-repos
+sudo dnf -y distro-sync
+```
 
 Note that:
 * This server is now running, and completely exposed to the whole of the Internet
