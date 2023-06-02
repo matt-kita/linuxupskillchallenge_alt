@@ -80,7 +80,7 @@ The process is basically the same for all these VPS, but here some step-by-steps
 * Choose "Instances" from the left-pane, in **COMPUTING** section.
 * Click on *+Create new instance*
 * **Hostname**: Type in the unique name of your server
-* **Image**: Select an operating system image, which will be deployed (installed) on your VPS. (For the purpose of this "alternative" implementation, the latest available "CentOS" stable release is preferred).
+* **Image**: Select an operating system image, which will be deployed (installed) on your VPS. (For the purpose of this "alternative" implementation, the latest available "CentOS Linux" stable release is preferred).
 * **Size**: Click the option "Standard" (preselected) and scale-up/down your server's RAM size, measured with "*Std Unit*s" - each unit adds 1 GB of RAM, default is "1 Std Unit" / a VPS with 1 GB of RAM
 (number of available CPUs for all "Standard" instances is fixed to "2 vCPUs")
 * **Hard disk**: Use slider to pick the size of your "Standard" instance's HDD (not SSD), with 5 GB "granularity" - default/min. size is 20 GB (max. selectable size is 1000 GB)
@@ -139,13 +139,21 @@ To login using your new user, [copy the SSH key from root](https://askubuntu.com
 
 ## You are now a sysadmin
 
-Confirm that you can do administrative tasks by typing:
+Confirm that you can now perform administrative tasks, e.g. by typing:
 
 `sudo -l`
 
-## Upgrading your OS
+## Updating your OS
 
-`sudo dnf update`
+As CentOS Linux systems have offcially reached their [EOL (End Of Life)](https://www.centos.org/centos-linux-eol/), updating all installed packages to their newest available versions will require some additional preparation.
+
+First, run:
+
+`sudo sed -i.bak -e 's/^mirrorlist=/#mirrorlist=/g' -e 's|^#baseurl=http://mirror|baseurl=http://vault|g' /etc/yum.repos.d/CentOS-*.repo` (this is a single command)
+
+Then:
+
+`sudo dnf -y update`
 
 Don't worry too much about the output and messages from these commands, but it should be clear whether they succeeded or not. (Reply to any prompts by taking the default option). These commands are how you force the installation of updates on a CentOS Linux system, and only an administrator can do them.
 
